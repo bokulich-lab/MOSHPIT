@@ -41,6 +41,9 @@ file = "moshpit/_version.py"
 
 [tool.setuptools]
 include-package-data = true
+scripts = [
+    "bin/tab-mosh"
+]
 
 [tool.setuptools.packages.find]
 where = ["."]
