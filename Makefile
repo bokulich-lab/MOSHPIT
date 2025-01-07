@@ -13,7 +13,7 @@ test: all
 	pytest
 
 install: all
-	$(PYTHON) setup.py install && \
+	$(PYTHON) -m pip install -v . && \
 	mkdir -p $(PREFIX)/etc/conda/activate.d && \
 	cp hooks/50_activate_mosh_tab_completion.sh $(PREFIX)/etc/conda/activate.d/
 
