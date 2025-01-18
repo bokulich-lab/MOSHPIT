@@ -21,6 +21,7 @@ requirements:
     - qiime2 {{ qiime2_epoch }}.*
     - q2cli {{ qiime2_epoch }}.*
   build:
+  - python {{ python }}
   - setuptools
   - versioningit
 test:
