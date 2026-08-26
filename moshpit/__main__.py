@@ -7,12 +7,12 @@
 # ----------------------------------------------------------------------------
 
 import click
-import q2cli.commands
+import rachis_cli.commands
 
 
 ROOT_COMMAND_HELP = """\
-MOSHPIT command-line interface (q2cli)
---------------------------------------
+MOSHPIT command-line interface (via rachis-cli)
+-----------------------------------------------
 
 To get help with MOSHPIT, visit:
 
@@ -35,9 +35,9 @@ your .zshrc:
 
 
 # Entry point for CLI
-@click.command(cls=q2cli.commands.RootCommand, invoke_without_command=True,
+@click.command(cls=rachis_cli.commands.RootCommand, invoke_without_command=True,
                no_args_is_help=True, help=ROOT_COMMAND_HELP)
-@click.version_option(prog_name='mosh',
+@click.version_option(prog_name='rachis-cli',
                       message='%(prog)s version %(version)s\nRun `mosh info` '
                               'for more version details.')
 def mosh():

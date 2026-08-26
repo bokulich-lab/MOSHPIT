@@ -9,11 +9,11 @@
 #     source tab-qiime
 #
 
-_qiime_completion()
+_mosh_completion()
 {
-  # Attempt to find the cached completion script. If q2cli isn't installed, or
+  # Attempt to find the cached completion script. If rachis-cli isn't installed, or
   # is an incompatible version, don't attempt completion.
-  local completion_path="$(python -c "import q2cli.util; print(q2cli.util.get_completion_path())" 2> /dev/null)"
+  local completion_path="$(python -c "import rachis_cli.util; print(rachis_cli.util.get_completion_path())" 2> /dev/null)"
 
   if [[ $? != 0 ]]; then
     unset COMPREPLY
@@ -39,12 +39,12 @@ _qiime_completion()
   return 0
 }
 
-# Enable default readline and bash completion behavior when `_qiime_completion`
+# Enable default readline and bash completion behavior when `_mosh_completion`
 # doesn't have a reply.
-complete -F _qiime_completion -o default -o bashdefault mosh
+complete -F _mosh_completion -o default -o bashdefault mosh
 
-# Execute a `qiime` command (any command will do) so that tab-completion will
-# work out-of-the-box (e.g. with a fresh installation of q2cli). Running a
+# Execute a `mosh` command (any command will do) so that tab-completion will
+# work out-of-the-box (e.g. with a fresh installation of moshpit). Running a
 # command will create or refresh the cache if necessary, which contains the
 # actual completion script.
 #
