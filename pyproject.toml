@@ -15,6 +15,9 @@ Repository = "https://github.com/bokulich-lab/MOSHPIT"
 [project.scripts]
 "mosh" = "moshpit.__main__:mosh"
 
+[project.entry-points.'rachis.cli_commands']
+"mosh" = "moshpit.__main__:mosh"
+
 [build-system]
 requires = [
     "setuptools",
@@ -41,9 +44,6 @@ file = "moshpit/_version.py"
 
 [tool.setuptools]
 include-package-data = true
-script-files = [
-    "bin/tab-mosh"
-]
 
 [tool.setuptools.packages.find]
 where = ["."]
