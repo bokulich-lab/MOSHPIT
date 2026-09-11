@@ -7,7 +7,7 @@
 # ----------------------------------------------------------------------------
 
 import sys
-import qiime2
+import rachis
 import importlib
 
 try:
@@ -23,17 +23,17 @@ def __getattr__(name):
         return getattr(self, name)
     except AttributeError:
         try:
-            return getattr(qiime2, name)
+            return getattr(rachis, name)
         except AttributeError:
             # this is just to raise the right error
             getattr(self, name)
 
 
 def __dir__():
-    return dir(qiime2)
+    return dir(rachis)
 
 
-class __QIIMEProxyImport:
+class __MoshpitProxyImport:
     def find_spec(self, name, path=None, target=None):
         if not name.startswith('moshpit'):
             return None
@@ -42,7 +42,7 @@ class __QIIMEProxyImport:
             raise ImportError("Reloading the moshpit API is not"
                               " currently supported.")
         fqn = name.split('.')
-        fqn[0] = 'qiime2'
+        fqn[0] = 'rachis'
         resolved = '.'.join(fqn)
 
         try:
@@ -55,4 +55,4 @@ class __QIIMEProxyImport:
         return importlib.util.find_spec(resolved)
 
 
-sys.meta_path += [__QIIMEProxyImport()]
+sys.meta_path += [__MoshpitProxyImport()]

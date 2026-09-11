@@ -16,17 +16,16 @@ requirements:
     - wheel
   run:
     - python {{ python }}
-    - pip
     - click {{ click }}
-    - qiime2 >={{ qiime2 }}
-    - q2cli >={{ q2cli }}
+    - rachis >={{ rachis }}
+    - rachis-cli >={{ rachis_cli }}
   build:
   - python {{ python }}
   - setuptools
   - versioningit
 test:
   requires:
-    - qiime2 >={{ qiime2 }}
+    - rachis >={{ rachis }}
     - pytest
   imports:
     - moshpit

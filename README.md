@@ -1,21 +1,13 @@
 # MOSHPIT
 
-## Enabling tab completion
+## Tab completion
 
-### Bash
+Tab completion is enabled automatically when the environment is activated, for
+`mosh` and for the other rachis front-ends installed alongside it (`rachis` and
+`qiime`).
 
-To enable tab completion in Bash, run the following command or add it to your
-`.bashrc`/`.bash_profile`:
-
-```bash
-source tab-mosh
-```
-
-### ZSH
-
-To enable tab completion in ZSH, run the following commands or add them to your
-`.zshrc`:
+To enable it in the current shell, source the script provided by `rachis-cli`:
 
 ```bash
-autoload -Uz compinit && compinit && autoload bashcompinit && bashcompinit && source tab-mosh
+source tab-rachis
 ```

@@ -7,39 +7,32 @@
 # ----------------------------------------------------------------------------
 
 import click
-import q2cli.commands
+import rachis_cli.commands
 
 
 ROOT_COMMAND_HELP = """\
-MOSHPIT command-line interface (q2cli)
---------------------------------------
+MOSHPIT command-line interface (via rachis-cli)
+-----------------------------------------------
 
 To get help with MOSHPIT, visit:
 
     https://bokulich-lab.github.io/moshpit-docs/intro.html
 
-To enable tab completion in Bash, run the following command or add it to your \
-.bashrc/.bash_profile:
+Tab completion is enabled automatically when this environment is \
+activated. To enable it in the current shell, run:
 
-    source tab-mosh
-
-To enable tab completion in ZSH, run the following commands or add them to \
-your .zshrc:
-
-\b
-    autoload -Uz compinit && compinit
-    autoload bashcompinit && bashcompinit
-    source tab-mosh
+    source tab-rachis
 
 """
 
 
 # Entry point for CLI
-@click.command(cls=q2cli.commands.RootCommand, invoke_without_command=True,
+@click.command(cls=rachis_cli.commands.RootCommand,
+               invoke_without_command=True,
                no_args_is_help=True, help=ROOT_COMMAND_HELP)
-@click.version_option(prog_name='mosh',
-                      message='%(prog)s version %(version)s\nRun `mosh info` '
-                              'for more version details.')
+@click.version_option(package_name='moshpit',
+                      message='%(package)s version %(version)s\n'
+                              'Run `%(prog)s info` for more version details.')
 def mosh():
     pass
 
